@@ -16,3 +16,9 @@ plt.title('original data distribution', fontsize=25)
 ax.set_ylabel('Frequency')
 ax.set_xlabel('data')
 plt.savefig('output/orig_distribution.png')
+
+# mean and standard deviation of the original data distibution
+data_mean = random_data_df['data'].mean()
+data_std = random_data_df['data'].std()
+print("Data Mean =", round(data_mean,2))
+print("Data Standard Deviation =", round(data_std,2))
