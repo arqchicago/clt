@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
+np.random.seed(556728)
 
 # creating a skewed distribution with 1000 observations
 random_data = 1000*np.random.gamma(1.95, 2.5, 1000)
@@ -11,7 +12,7 @@ print(random_data_df)
 
 # visualizing the data distribution
 fig, ax = plt.subplots()
-plt.hist(random_data_df['data'], bins=100)
+plt.hist(random_data_df['data'], bins=40)
 plt.title('original data distribution', fontsize=25)
 ax.set_ylabel('Frequency')
 ax.set_xlabel('data')
@@ -34,3 +35,11 @@ std_sample_means = sample_means.std()
 print("Mean of the distribution of sample means (mean_sm):", round(mean_sample_means, 2))
 print("Standard Deviation of the distribution of sample means (std_sm):", round(std_sample_means, 2))
 print("std_d/sqrt(n):", round(data_std/(100**0.50), 2))
+
+# visualize the distribution of sample means
+fig, ax = plt.subplots()
+plt.hist(sample_means, bins=40)
+plt.title('Distribution of 1000 sample means', fontsize=25)
+ax.set_xlabel('Sample Means')
+ax.set_ylabel('Frequency')
+plt.savefig('output/sample_mean_distribution.png')
